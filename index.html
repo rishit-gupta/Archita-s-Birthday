@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Love!</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Three.js CDN for 3D heart -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- Lottie for sparkles/butterflies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+</head>
+<body>
+  <div id="raining-hearts"></div>
+  <canvas id="fireworks-canvas"></canvas>
+  <div id="starry-bg"></div>
+  <audio id="bg-music" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12e4b8f2a0.mp3" loop preload="auto"></audio>
+  <main>
+    <!-- Landing Section -->
+    <section id="landing">
+      <img id="favorite-photo" src="1000113029.png" alt="Our Favorite" style="width:200px;max-width:90vw;height:auto;border-radius:18px;box-shadow:0 2px 12px #e49fd9aa;margin-bottom:1.2rem;object-fit:cover;" />
+      <div id="sparkles-lottie"></div>
+      <h1>Happy Birthday, <span id="her-name">[Her Name]</span>!</h1>
+      <p class="subtitle">Welcome to your magical birthday surprise ✨</p>
+      <button id="enter-btn">Enter</button>
+    </section>
+    <!-- Birthday Message & Carousel -->
+    <section id="message-section" class="hidden">
+      <h2>To My Dream Girl</h2>
+      <p class="main-message">You light up my world with your love, laughter, and kindness. Here is a Sweet Message For You!:</p>
+      <div id="memory-heart" style="display:flex;justify-content:center;align-items:center;margin:1.5rem 0;">
+  <img src="https://media.tenor.com/iNdYjrgY90MAAAAi/red-heart-bumping.gif" alt="3D Heart" style="width:160px;height:140px;object-fit:contain;" />
+</div>
+    </section>
+    <section id="love-section" class="hidden">
+  <h3>My Love Letter to You</h3>
+  <p style="max-width:480px;margin:0 auto 1.5rem auto;font-size:1.1rem;color:#2d2d5a;line-height:1.7;">
+Zindagi ke har mod par, tumhara saath chahiye,<br>
+Tumhari hansi, tumhari khushi, tumhara pyaar chahiye.😘<br>
+Happy birthday my love💓, you are my everything,<br>
+With you, every day feels like a beautiful spring. 🌸<br>
+Bhagwan Teri har choti choti khwaish poori kre ... Dur rehkr bhi mere sabse najdeek bs tu rahe🥰<br>
+Tera aana .. hmesha se bahar laaya hai mannat hai woh bahar hmesha mere paas rahe🤗<br>
+Tu saath rahe khush rahe aur hmesha muskurati rahe bss yahi maangta hu iss birthday teri har choti khwaish ko poori krne ki duaa mangta hu 💕<br>
+Tera hona mere liye blessings se km ni ...mere liye toh tu hai aise hi Tereko bhi yahi ehsaas bna rhe🫂 <br>
+Gulab bhi tere se khushboo ki pukar kre... <br>
+Aasman , paani bhi tere jitna saaf na bn ske ...<br>
+Tu chle toh ...bahar bhi khil uthe bs tere saath mili hui har zindagi mujhe baar baar lge😁<br>
+Happy Birthday meri jaan🥰💓.... <br>
+May God gives all his blessings to you 🤗
+</p>
+  <div id="carousel" style="display:flex;align-items:center;justify-content:center;gap:18px;">
+    <button id="prev-img" style="font-size:2rem;background:none;border:none;color:#7a247b;cursor:pointer;">&#8592;</button>
+    <img id="carousel-img" src="1000113027.jpg" alt="Memory" style="width:220px;height:160px;object-fit:cover;border-radius:16px;box-shadow:0 2px 12px #d49fd9aa;transition:all 0.3s;" />
+    <button id="next-img" style="font-size:2rem;background:none;border:none;color:#7a247b;cursor:pointer;">&#8594;</button>
+  </div>
+</section>
+    <!-- Love Quotes -->
+    <section id="quotes-section" class="hidden">
+      <div id="love-quote"></div>
+    </section>
+    <!-- Countdown -->
+    
+    <!-- Interactive Animated Elements -->
+    <div id="floating-elements"></div>
+    <!-- Reveal Section -->
+    <section id="reveal-section" class="hidden">
+      <button id="reveal-btn">Reveal Your Secret Message</button>
+      <div id="heart-explosion" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;background:rgba(255,255,255,0.7);align-items:center;justify-content:center;">
+        <svg width="400" height="350" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path d="M200 320C200 320 40 200 40 110C40 40 120 20 180 90C240 20 320 40 320 110C320 200 200 320 200 320Z" fill="#ff5eaa" stroke="#e49fd9" stroke-width="8" filter="url(#shadow)"/>
+            <animateTransform attributeName="transform" type="scale" from="0.2" to="1.3" begin="0s" dur="0.5s" fill="freeze" />
+          </g>
+          <defs>
+            <filter id="shadow" x="-20" y="0" width="440" height="370">
+              <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#e49fd9"/>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+      <div id="love-letter" class="hidden">
+        <h3>My Love Letter to You</h3>
+        <p>From the moment I met you, my world became brighter and more magical. Your smile is my sunshine, your laughter my favorite melody, and your love the most precious gift I could ever receive. Every day with you feels like a beautiful dream, and I am endlessly grateful for your kindness, strength, and the joy you bring into my life. Thank you for being my partner, my best friend, and my inspiration. I promise to cherish you, support you, and love you more deeply with every passing day. Happy Birthday, my love—may your day be as extraordinary as you are to me.</p>
+        <div id="reveal-gallery" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:1.2rem;">
+  <img src="1000113027.jpg" alt="Surprise 1" style="width:100px;height:100px;object-fit:cover;border-radius:12px;box-shadow:0 1px 8px #e0e7fa;" />
+  <img src="p1.jpg" alt="Surprise 2" style="width:100px;height:100px;object-fit:cover;border-radius:12px;box-shadow:0 1px 8px #e0e7fa;" />
+  <img src="1000113031.jpg" alt="Surprise 3" style="width:100px;height:100px;object-fit:cover;border-radius:12px;box-shadow:0 1px 8px #e0e7fa;" />
+  <img src="1000113033.jpg" alt="Surprise 4" style="width:100px;height:100px;object-fit:cover;border-radius:12px;box-shadow:0 1px 8px #e0e7fa;" />
+  <img src="1000113035.jpg" alt="Surprise 5" style="width:100px;height:100px;object-fit:cover;border-radius:12px;box-shadow:0 1px 8px #e0e7fa;" />
+</div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
